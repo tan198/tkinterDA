@@ -6,8 +6,8 @@ import tkinter.simpledialog
 from tkinter import font, ttk
 
 
-class ViewCar(tk.Tk):
-    def __int__(self, server, database, username=None, password=None):
+class ViewCars(tk.Tk):
+    def __init__(self, server, database, username=None, password=None):
         super().__init__()
         self.title("Car Management System")
         self.geometry("906x662")
@@ -27,14 +27,14 @@ class ViewCar(tk.Tk):
         self.efCarID.grid(row=1, column=2)
 
         # Create frame buttons search
-        self.btn_frame1 = tk.Frame()
-        self.btn_frame1.grid(row=1, column=3, columnspan=2, pady=10)
+        self.btn_frame = tk.Frame()
+        self.btn_frame.grid(row=1, column=3, columnspan=2, pady=10)
 
-        self.buttons1 = {
+        self.buttons = {
             "Search": tk.Button(self, text="Search")
         }
 
-        self.buttons1["Search"].grid(row=2, column=4, padx=10)
+        self.buttons["Search"].grid(row=2, column=4, padx=10)
 
         # Create treeview display data
         self.treeview = ttk.Treeview(columns=('', 'CarID', 'Make', 'Model', 'Year', 'Transmission', 'Body Type',
@@ -51,17 +51,17 @@ class ViewCar(tk.Tk):
         self.treeview.grid(row=4, column=0, columnspan=5)
 
         # Create Frame buttons add,update, delete
-        self.btn_frame2 = tk.Frame()
-        self.btn_frame2.grid(row=5, column=0, columspan=4, pady=10)
+        self.btn_frame = tk.Frame()
+        self.btn_frame.grid(row=5, column=0, columnspan=4, pady=10)
 
-        self.buttons2 = {
+        self.buttons = {
             "Add Car": tk.Button(self, text="Add Car"),
             "Delete": tk.Button(self, text="Delete"),
             "Update": tk.Button(self, text="Update")
         }
 
-        for button in self.buttons2.values():
-            button.pack(side=tk.LEFT, padx=5)
+        #for button in self.buttons.values():
+         #   button.pack(side=tk.LEFT, padx=5)
 
     def add_car_dialog(self):
         car_dialog = AddCarDialog(self)
