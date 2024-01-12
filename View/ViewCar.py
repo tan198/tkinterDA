@@ -1,6 +1,6 @@
 import tkinter as tk
 from database.connectdb import Connect
-from Model.ModelCar import Model_Cars
+from Model.ModelCar import ModelCar
 import tkinter.simpledialog
 
 from tkinter import font, ttk
@@ -14,7 +14,7 @@ class ViewCar(tk.Tk):
 
         self.stt_counter = 0
         self.connectt = Connect(server, database)
-        self.cars = Model_Cars(server, database, self.connectt)
+        self.cars = ModelCar(server, database, self.connectt)
 
         title_font = font.Font(family="Helvetica", size=16, weight="bold")
         self.lbTitle = tk.Label(text="Car Management System", font=title_font)

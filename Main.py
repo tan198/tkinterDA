@@ -1,13 +1,13 @@
-from View import ViewCar
+from View.ViewCar import ViewCar
 from Controller.ControllerCar import ControllerCar
-from Model.ModelCar import Model_Cars
+from Model.ModelCar import ModelCar
 
 
-server = 'Admin-PC'
+server = 'ADMIN-PC'
 database = 'CAR_MANAGEMENT_SYSTEM'
 
-viewCar = ViewCar(server, database)
-modelCar = Model_Cars(server, database)
-controllerCar = ControllerCar(viewCar, modelCar, server, database)
+view = ViewCar(server, database)
+model = ModelCar(server, database)
+controller = ControllerCar(view, model, server, database)
 
-viewCar.mainloop()
+view.mainloop()
