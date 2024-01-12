@@ -9,6 +9,6 @@ class ControllerCar:
 
         self.connectt = Connect(server, database, username, password)
         self.dsCars = []
-        self.viewCar.buttons["Load"].config(command=self.load_car)
-        self.viewCar.buttons["Add"].config(command=self.create_car)
-        self.viewCar
+        self.viewCar.buttons["Update"].config(command=self.update_car)
+        self.viewCar.buttons["Add Car"].config(command=self.create_car)
+        self.viewCar.buttons["Delete"].config(command= self.delete_car)
