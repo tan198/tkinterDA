@@ -30,13 +30,13 @@ class ControllerCar:
                 self.view.treeview.insert('', 'end', values=(
                     index,
                     cars['CarID'],
-                    cars['make'],
-                    cars['model'],
-                    cars['year'],
-                    cars['transmission'],
-                    cars['body_type'],
-                    cars['category'],
-                    cars['price']
+                    cars['Make'],
+                    cars['Model'],
+                    cars['Year'],
+                    cars['Transmission'],
+                    cars['BodyType'],
+                    cars['Category'],
+                    cars['Price']
                 ))
             self.cap_nhat_du_lieu_treeview()
             messagebox.showinfo("Thành công", "Tải danh sách xe thành công.")
@@ -50,16 +50,16 @@ class ControllerCar:
             self.view.treeview.delete(row)
 
         # Hiển thị dữ liệu mới trong Treeview
-        for index, car in enumerate(self.model.dsCars, start=1):
+        for index, cars in enumerate(self.model.dsCars, start=1):
             #print(f"Thêm dữ liệu mới vào Treeview: {nv._maNV}, {nv._hoTen}, {nv._luongCoBan}, {nv._luongHT}")
             self.view.treeview.insert('', 'end', values=(
                 index,
-                car['carID'],
-                car['make'],
-                car['model'],
-                car['year'],
-                car['transmission'],
-                car['body_type'],
-                car['category'],
-                car['price']
+                cars['CarID'],
+                cars['Make'],
+                cars['Model'],
+                cars['Year'],
+                cars['Transmission'],
+                cars['BodyType'],
+                cars['Category'],
+                cars['Price']
             ))
