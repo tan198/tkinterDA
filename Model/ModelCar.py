@@ -26,29 +26,31 @@ class ModelCar:
         except Exception as e:
             print(f"Error loading Cars:{e} ")
 
-    def create_car(self, carID, make, model, year, transmission, bodytype, category, price):
+    def create_cars(self, CarID, Make, Model, Year, Transmission, BodyType, Category, Price):
         try:
             query = f"""
+                SET IDENTITY_INSERT Cars ON;
                 INSERT INTO Cars(CarID, Make, Model, Year, Transmission, BodyType, Category, Price)
-                VALUES('{carID}', N'{make}', N'{model}', N'{year}', N'{transmission}', N'{bodytype}', N'{category}',
-                 N'{price}');       
+                VALUES('{CarID}', N'{Make}', N'{Model}', N'{Year}', N'{Transmission}', N'{BodyType}', N'{Category}',
+                 N'{Price}');
+                SET IDENTITY_INSERT Cars OFF;    
             """
             self.connectt.execute(query)
             self.connectt.commit()
-            print(f"Add Cars {carID} Successfully.")
+            print(f"Add Cars {CarID} Successfully.")
         except Exception as e:
-            print(f"Error Add Cars {carID}: {e}")
+            print(f"Error Add Cars {CarID}: {e}")
 
     def update_cars(self, carID, make, model, year, transmission, bodytype, category, price):
         try:
             query = f"""
                 UPDATE CARS SET Make = '{make}',Model = '{model}',Year = '{year}',Transmission = '{transmission}', 
-                BodyType = '{bodytype}',Category = '{category}',Price = '{price}' WHERE CarID = '{carid}';
+                BodyType = '{bodytype}',Category = '{category}',Price = '{price}' WHERE CarID = '{carID}';
                 """
             self.connectt.execute_query(query)
             self.connectt.commit()
             print(f"Update Car {carID} successfully")
-            self.connectt.close()
+
         except Exception as e:
             print(f"Error updating {carID} fail: {e}")
 
@@ -60,7 +62,6 @@ class ModelCar:
             self.connectt.execute_query(query)
             self.connectt.commit()
             print(f"Delete Car {carID} Successfully")
-            self.connectt.close()
         except Exception as e:
             print(f"Error Delete {carID} Fails: {e}")
 
@@ -75,6 +76,5 @@ class ModelCar:
                 print(f"Car {carID} is not existed")
                 return
             self.connectt.commit()
-            self.connectt.close()
         except Exception as e:
             print(f"Error Searching {carID}: {e}")
