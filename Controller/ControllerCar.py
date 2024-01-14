@@ -19,6 +19,7 @@ class ControllerCar:
         self.Body_Entry = self.view.Body_Entry
         self.Category_Entry = self.view.Category_Entry
         self.Price_Entry = self.view.Price_Entry
+        self.Search_Entry = self.view.Search_Entry
         super().__init__()
 
         self.connectt = Connect(server, database, username, password)
@@ -27,6 +28,7 @@ class ControllerCar:
         self.view.buttons["UPDATE"].config(command=lambda: self.update_car())
         self.view.buttons["DELETE"].config(command=lambda: self.delete_car())
         self.view.buttons["LOAD"].config(command=lambda: self.load_car())
+        self.view.buttons1["SEARCH"].config(command=lambda: self.search_car())
 
         self.view.treeview.bind("<Double-1>", self.load_treeview)
 
@@ -174,3 +176,27 @@ class ControllerCar:
             messagebox.showinfo("Thông báo", "Xóa xe thành công.")
         else:
             messagebox.showwarning("Cảnh báo", "Chưa chọn xe để xóa.")
+
+    def search_car(self):
+
+        search = self.Search_Entry.get()
+        search = int(search)
+        data = self.model.search_cars(search)
+        print(f"Day la: {data}")
+        if data:
+            self.view.treeview.delete(*self.view.treeview.get_children())
+            for index, cars in enumerate(data, start=1):
+                self.view.treeview.insert('', 'end', values=(
+                    index,
+                    cars.CarID,
+                    cars.Make,
+                    cars.Model,
+                    cars.Year,
+                    cars.Transmission,
+                    cars.BodyType,
+                    cars.Category,
+                    cars.Price
+                ))
+        else:
+            messagebox.showinfo("Thông báo", "Không tìm thấy xe!")
+

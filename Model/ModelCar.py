@@ -65,16 +65,21 @@ class ModelCar:
         except Exception as e:
             print(f"Error Delete {carID} Fails: {e}")
 
-    def search_car(self, carID):
+    def search_cars(self, carID):
         try:
             query = f"""
-                SELECT * FROM Cars WHERE CarID = {carID},
+                SELECT * FROM Cars WHERE CarID = '{carID}';
             """
-            check = self.connectt.execute_query(query).fetchone()[0]
+            check = self.connectt.execute_query(query).fetchall()
 
+            #print(check)
             if check == 0:
                 print(f"Car {carID} is not existed")
                 return
+
+            # columns = [desc[0] for desc in self.connectt.execute_query(query).description]
+            # car_dict = dict(zip(columns, check))
             self.connectt.commit()
+            return check
         except Exception as e:
             print(f"Error Searching {carID}: {e}")
