@@ -1,7 +1,6 @@
 from tkinter import *
 import tkinter as tk
 from database import connectdb
-from Controller import ControllerCar as Ctrl
 import Main
 
 class ViewQL(tk.Tk):
@@ -53,11 +52,11 @@ class ViewQL(tk.Tk):
         self.lblSpace5.grid()
 
     def run1(self):
-        self.destroy()
+
         Main.runviewQLX()
     def run2(self):
-        self.destroy()
+
         Main.runviewSale()
     def run3(self):
-        self.destroy()
+
         Main.runRegister()

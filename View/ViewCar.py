@@ -26,9 +26,11 @@ class ViewCar(tk.Tk):
         MainFrame.grid()
 
         # TITLE FRAME
-        TitleFrame=LabelFrame(MainFrame,width=1200,height=50,bg='lightblue',relief=RIDGE,bd=5)
+        TitleFrame1 = LabelFrame(MainFrame, width=1200, height=20, bg='lightblue', relief=RIDGE, bd=0, pady=10)
+        TitleFrame1.pack(side=TOP)
+        TitleFrame=LabelFrame(MainFrame,width=1200,height=50,bg='lightblue',relief=RIDGE,bd=0)
         TitleFrame.pack(side=TOP)
-        self.lblTitle = Label(TitleFrame,width=100,font=('arial', 15), text='CAR MANAGERMENT SYSTEM',bg='lightblue')
+        self.lblTitle = Label(TitleFrame,bd=0, width=100,font=('arial', 15), text='CAR MANAGERMENT SYSTEM',bg='lightblue')
         self.lblTitle.grid()
 
 

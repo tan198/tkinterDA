@@ -1,8 +1,7 @@
 from tkinter import *
 import tkinter as tk
 from database import connectdb
-from Controller import ControllerCar as Ctrl
-import Main
+
 class ViewNV(tk.Tk):
     def __init__(self,server,database):
         super().__init__()
