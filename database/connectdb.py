@@ -4,9 +4,9 @@ import pyodbc
 class Connect:
     def __init__(self, server, database, username=None, password=None):
         if username and password:
-            str_sql = f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}"
+            str_sql = f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password};"
         else:
-            str_sql = f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};Trusted_Connection=yes"
+            str_sql = f"DRIVER={{SQL Server}};SERVER={server};DATABASE={database};Trusted_Connection=yes;"
 
         self.connection = pyodbc.connect(str_sql)
         self.cursor = self.connection.cursor()

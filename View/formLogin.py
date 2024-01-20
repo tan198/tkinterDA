@@ -1,3 +1,4 @@
+1
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
@@ -9,14 +10,14 @@ roleA = ''
 
 
 def runMainQL(username, password):
-    # Hàm chính của chuong trình
+    # Hàm chính c?a chuong trình
     server = 'ADMIN-PC'
     database = 'CAR_MANAGEMENT_SYSTEM'
     Main.runformQL()
 
 
 def runMainNV(username, password):
-    # Hàm chính của chuong trình
+    # Hàm chính c?a chuong trình
     server = 'ADMIN-PC'
     database = 'CAR_MANAGEMENT_SYSTEM'
     Main.runformNV()
